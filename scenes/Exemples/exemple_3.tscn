@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://oglfwou364ug"]
+
+[ext_resource type="Script" uid="uid://d3n6q5k80johx" path="res://scenes/models/scripts/skill_check.gd" id="1_t46rq"]
+[ext_resource type="Resource" uid="uid://cqm4cqbhnr1j2" path="res://scenes/models/Pointers/data/pointer_arc.tres" id="2_sdle3"]
+[ext_resource type="Script" uid="uid://csjtbpkqod34w" path="res://scenes/models/Components/manger_hit_zones.gd" id="3_lq1d4"]
+[ext_resource type="Script" uid="uid://dtuigaat34aeo" path="res://scenes/models/scripts/arc_path_skill_check.gd" id="4_vls3p"]
+[ext_resource type="Script" uid="uid://f3cxm1l1bogw" path="res://scenes/models/scripts/hit_zone.gd" id="5_mgcv4"]
+[ext_resource type="Script" uid="uid://wvf61nhhweo8" path="res://scenes/models/scripts/area_hit_zone.gd" id="6_vnurc"]
+[ext_resource type="Script" uid="uid://c26my8khu5j0o" path="res://scenes/models/scripts/pointer.gd" id="7_6h1pj"]
+
+[sub_resource type="Curve2D" id="Curve2D_t46rq"]
+_data = {
+"points": PackedVector2Array(0, 0, 82.842705, 0, 0, -150, 0, -82.842705, 0, 82.842705, 150, 0, 82.842705, 0, 0, 0, 0, 150)
+}
+point_count = 3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bo6sr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_clld8"]
+radius = 1.0000066
+
+[node name="Exemple3" type="Node2D" unique_id=1038685554]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=403843114]
+
+[node name="SkillCheck" type="Node2D" parent="." unique_id=1244219421 node_paths=PackedStringArray("path", "manager_hit_zones")]
+rotation = -1.5707964
+script = ExtResource("1_t46rq")
+in_play = true
+path = NodePath("ArcPathSkillCheck")
+manager_hit_zones = NodePath("ManagerHitZones")
+data_pointer = ExtResource("2_sdle3")
+
+[node name="ManagerHitZones" type="Node" parent="SkillCheck" unique_id=681982322 node_paths=PackedStringArray("path")]
+script = ExtResource("3_lq1d4")
+path = NodePath("../ArcPathSkillCheck")
+
+[node name="ArcPathSkillCheck" type="Path2D" parent="SkillCheck" unique_id=550590619 node_paths=PackedStringArray("_current_hit_zones", "pointer")]
+curve = SubResource("Curve2D_t46rq")
+script = ExtResource("4_vls3p")
+_current_hit_zones = [NodePath("HitZone")]
+pointer = NodePath("Pointer")
+
+[node name="HitZone" type="PathFollow2D" parent="SkillCheck/ArcPathSkillCheck" unique_id=455864887 node_paths=PackedStringArray("_area_hit_zone")]
+position = Vector2(0, -150)
+script = ExtResource("5_mgcv4")
+_width_texture = 20.0
+_area_hit_zone = [NodePath("AreaHitZone")]
+
+[node name="AreaHitZone" type="Area2D" parent="SkillCheck/ArcPathSkillCheck/HitZone" unique_id=1628428585]
+script = ExtResource("6_vnurc")
+_type = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SkillCheck/ArcPathSkillCheck/HitZone/AreaHitZone" unique_id=1346689145]
+shape = SubResource("RectangleShape2D_bo6sr")
+
+[node name="Pointer" type="PathFollow2D" parent="SkillCheck/ArcPathSkillCheck" unique_id=1992643653 node_paths=PackedStringArray("_area_pointer")]
+position = Vector2(0, -150)
+script = ExtResource("7_6h1pj")
+_area_pointer = NodePath("Area2D")
+data = ExtResource("2_sdle3")
+
+[node name="Area2D" type="Area2D" parent="SkillCheck/ArcPathSkillCheck/Pointer" unique_id=232879620]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SkillCheck/ArcPathSkillCheck/Pointer/Area2D" unique_id=45293088]
+shape = SubResource("CapsuleShape2D_clld8")
+debug_color = Color(0.9943791, 0, 0.23031348, 0.41960785)

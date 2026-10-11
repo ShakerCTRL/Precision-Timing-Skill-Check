@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://blckupjpqklhj"]
+
+[ext_resource type="Script" uid="uid://f3cxm1l1bogw" path="res://scenes/models/scripts/hit_zone.gd" id="1_qc3et"]
+[ext_resource type="Script" uid="uid://wvf61nhhweo8" path="res://scenes/models/scripts/area_hit_zone.gd" id="2_ovfmv"]
+[ext_resource type="Texture2D" uid="uid://deuaf136vd4d0" path="res://Assets/SpriteSheetRetanglePuzzle.png" id="3_7ndxd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6b46y"]
+
+[node name="HitZoneCSV1" type="PathFollow2D" unique_id=1731291843 node_paths=PackedStringArray("_area_hit_zone")]
+rotation = 1.5707964
+script = ExtResource("1_qc3et")
+_width_texture = 14.0
+_area_hit_zone = NodePath("AreaHitZone")
+metadata/_custom_type_script = "uid://f3cxm1l1bogw"
+
+[node name="AreaHitZone" type="Area2D" parent="." unique_id=700278111]
+script = ExtResource("2_ovfmv")
+_type = 2
+metadata/_custom_type_script = "uid://wvf61nhhweo8"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaHitZone" unique_id=1016739484]
+shape = SubResource("RectangleShape2D_6b46y")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1146825815]
+position = Vector2(-0.3908732, 0.7551473)
+scale = Vector2(0.26540902, 0.17411765)
+texture = ExtResource("3_7ndxd")
+region_enabled = true
+region_rect = Rect2(533, 165, 88, 79)

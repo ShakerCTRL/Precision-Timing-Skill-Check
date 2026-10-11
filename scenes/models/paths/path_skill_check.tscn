@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://drct2d50nq2qn"]
+
+[ext_resource type="Script" uid="uid://dmmakfi4wr81y" path="res://precision_and_skill_check_v1/scenes/models/scripts/path_skill_check.gd" id="1_icdnn"]
+
+[node name="PathSkillCheck" type="Path2D" unique_id=1515435286]
+script = ExtResource("1_icdnn")

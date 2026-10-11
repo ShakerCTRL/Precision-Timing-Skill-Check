@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://cqvogfk4xu6px"]
+
+[ext_resource type="Script" uid="uid://d3n6q5k80johx" path="res://precision_and_skill_check_v1/scenes/models/scripts/skill_check.gd" id="1_2lgff"]
+[ext_resource type="Script" uid="uid://csjtbpkqod34w" path="res://precision_and_skill_check_v1/scenes/models/Components/manger_hit_zones.gd" id="4_j533r"]
+[ext_resource type="PackedScene" uid="uid://fjww3dgmu2d4" path="res://precision_and_skill_check_v1/scenes/models/paths/path_bar_skill_check.tscn" id="4_wr3w4"]
+[ext_resource type="PackedScene" uid="uid://wvqfh77ur62w" path="res://precision_and_skill_check_v1/scenes/models/Hit Zones/hit_zone_for_bsv_1.tscn" id="5_yrj0i"]
+[ext_resource type="PackedScene" uid="uid://cyjkc4l1wddum" path="res://precision_and_skill_check_v1/scenes/models/Pointers/pointer_bar_skill_check_v_1.tscn" id="6_yjr7u"]
+[ext_resource type="Resource" uid="uid://j282epubsmev" path="res://precision_and_skill_check_v1/scenes/models/Pointers/data/data_pointer.tres" id="9_tifvm"]
+
+[sub_resource type="Curve2D" id="Curve2D_12pm5"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -213, 0, 0, 0, 0, 0, 213, 0)
+}
+point_count = 2
+
+[node name="Bar_Skill_CheckV1" type="Node2D" unique_id=482415406 node_paths=PackedStringArray("path", "manager_hit_zones")]
+script = ExtResource("1_2lgff")
+path = NodePath("BarPathSkillCheck")
+manager_hit_zones = NodePath("ManagerHitZones")
+data_pointer = ExtResource("9_tifvm")
+
+[node name="ManagerHitZones" type="Node" parent="." unique_id=1439607382 node_paths=PackedStringArray("path")]
+script = ExtResource("4_j533r")
+path = NodePath("../BarPathSkillCheck")
+metadata/_custom_type_script = "uid://csjtbpkqod34w"
+
+[node name="BarPathSkillCheck" parent="." unique_id=1625918507 node_paths=PackedStringArray("_current_hit_zones", "pointer") instance=ExtResource("4_wr3w4")]
+curve = SubResource("Curve2D_12pm5")
+_current_hit_zones = [NodePath("HitZoneForBSV2")]
+pointer = NodePath("PointerBarSkillCheckV2")
+
+[node name="HitZoneForBSV2" parent="BarPathSkillCheck" unique_id=1924884513 node_paths=PackedStringArray("_area_hit_zone") instance=ExtResource("5_yrj0i")]
+position = Vector2(-213, 0)
+_area_hit_zone = []
+
+[node name="PointerBarSkillCheckV2" parent="BarPathSkillCheck" unique_id=1664322796 instance=ExtResource("6_yjr7u")]
+position = Vector2(-213, 0)

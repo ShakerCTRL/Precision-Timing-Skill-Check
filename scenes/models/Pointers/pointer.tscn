@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://2s0w25a0ly7c"]
+
+[ext_resource type="Script" uid="uid://c26my8khu5j0o" path="res://scenes/models/scripts/pointer.gd" id="1_khwwc"]
+[ext_resource type="Texture2D" uid="uid://c7iqg8ru7fq88" path="res://Assets/triangleyellow.svg" id="2_rousi"]
+
+[node name="Pointer" type="PathFollow2D" unique_id=186828327 node_paths=PackedStringArray("_area_pointer")]
+script = ExtResource("1_khwwc")
+_area_pointer = NodePath("AreaPointer")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=257932489]
+position = Vector2(0, -100)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_rousi")
+
+[node name="AreaPointer" type="Area2D" parent="." unique_id=1641935283]
+
+[node name="ShapePointer" type="CollisionShape2D" parent="AreaPointer" unique_id=1894461298]

@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c4k04fcossupp"]
+
+[ext_resource type="Script" uid="uid://f3cxm1l1bogw" path="res://scenes/models/scripts/hit_zone.gd" id="1_gmh8t"]
+[ext_resource type="Texture2D" uid="uid://deuaf136vd4d0" path="res://Assets/SpriteSheetRetanglePuzzle.png" id="2_n5ucp"]
+[ext_resource type="Script" uid="uid://wvf61nhhweo8" path="res://scenes/models/scripts/area_hit_zone.gd" id="3_08iov"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dl8ip"]
+size = Vector2(24, 16)
+
+[node name="HitZoneArckSkill" type="PathFollow2D" unique_id=997013622]
+script = ExtResource("1_gmh8t")
+_width_texture = 16.0
+metadata/_custom_type_script = "uid://f3cxm1l1bogw"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1673263738]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_n5ucp")
+region_enabled = true
+region_rect = Rect2(536, 165, 81, 53)
+
+[node name="AreaHitZone" type="Area2D" parent="." unique_id=318352602]
+script = ExtResource("3_08iov")
+metadata/_custom_type_script = "uid://wvf61nhhweo8"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaHitZone" unique_id=2116566221]
+position = Vector2(8.146231e-06, 0)
+shape = SubResource("RectangleShape2D_dl8ip")

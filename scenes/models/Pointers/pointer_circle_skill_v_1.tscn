@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bk6fy07vibkeo"]
+
+[ext_resource type="Script" uid="uid://c26my8khu5j0o" path="res://scenes/models/scripts/pointer.gd" id="1_q2luo"]
+[ext_resource type="Resource" uid="uid://doxf78lr72y5u" path="res://scenes/models/Pointers/data/Pointer_In_Circle.tres" id="2_28q07"]
+[ext_resource type="Texture2D" uid="uid://c7iqg8ru7fq88" path="res://Assets/triangleyellow.svg" id="3_ohhuu"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_utwdo"]
+
+[node name="PointerCSV1" type="PathFollow2D" unique_id=1246382453 node_paths=PackedStringArray("_area_pointer")]
+rotation = 1.5707964
+script = ExtResource("1_q2luo")
+_area_pointer = NodePath("Area2D")
+data = ExtResource("2_28q07")
+metadata/_custom_type_script = "uid://c26my8khu5j0o"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1215040]
+position = Vector2(0, -50)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_ohhuu")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=359335843]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1700537694]
+shape = SubResource("CapsuleShape2D_utwdo")

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://2x2sxhnj5rbv"]
+
+[ext_resource type="Script" uid="uid://d3n6q5k80johx" path="res://scenes/models/scripts/skill_check.gd" id="1_u63vv"]
+[ext_resource type="Script" uid="uid://csjtbpkqod34w" path="res://scenes/models/Components/manger_hit_zones.gd" id="2_k4j1o"]
+[ext_resource type="PackedScene" uid="uid://drct2d50nq2qn" path="res://scenes/models/paths/path_skill_check.tscn" id="3_nvpi8"]
+[ext_resource type="PackedScene" uid="uid://hl7thna385yy" path="res://scenes/models/Hit Zones/hit_zone.tscn" id="5_egstv"]
+[ext_resource type="PackedScene" uid="uid://2s0w25a0ly7c" path="res://scenes/models/Pointers/pointer.tscn" id="6_egstv"]
+
+[node name="AbstractSkillCheck" type="Node2D" unique_id=760260070]
+script = ExtResource("1_u63vv")
+
+[node name="TextureBackgroundSkillCheck" type="Sprite2D" parent="." unique_id=1206281611]
+
+[node name="ManagerHitZones" type="Node" parent="." unique_id=1983979638 node_paths=PackedStringArray("path")]
+script = ExtResource("2_k4j1o")
+path = NodePath("../PathSkillCheck")
+metadata/_custom_type_script = "uid://csjtbpkqod34w"
+
+[node name="PathSkillCheck" parent="." unique_id=1515435286 instance=ExtResource("3_nvpi8")]
+
+[node name="HitZone" parent="PathSkillCheck" unique_id=1664206284 instance=ExtResource("5_egstv")]
+position = Vector2(-210, 0)
+
+[node name="Pointer" parent="PathSkillCheck" unique_id=186828327 instance=ExtResource("6_egstv")]
+position = Vector2(-210, 0)

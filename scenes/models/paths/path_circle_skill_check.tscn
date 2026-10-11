@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bm4jcx3i7rnas"]
+
+[ext_resource type="Script" uid="uid://2ljf4qfqxk7t" path="res://scenes/models/scripts/path_circle_skill_check.gd" id="1_jyl2u"]
+[ext_resource type="Texture2D" uid="uid://jpsh8ory2nwe" path="res://Assets/circlered2.svg" id="2_vgshy"]
+
+[sub_resource type="Curve2D" id="Curve2D_1ylax"]
+_data = {
+"points": PackedVector2Array(0, -78.42443, 0, 78.42443, 142, 0, 78.42443, -4.801953e-15, -78.42443, 4.801953e-15, 8.694705e-15, 142, 9.603906e-15, 78.42443, -9.603906e-15, -78.42443, -142, 1.738941e-14, -78.42443, 1.4405859e-14, 78.42443, -1.4405859e-14, -2.6084115e-14, -142, 0, -78.42443, 0, 78.42443, 142, 0)
+}
+point_count = 5
+
+[node name="CirclePathSkillCheck" type="Path2D" unique_id=1026808956 node_paths=PackedStringArray("_current_hit_zones", "pointer", "_texture")]
+curve = SubResource("Curve2D_1ylax")
+script = ExtResource("1_jyl2u")
+radius = 142.0
+_current_hit_zones = [NodePath("")]
+pointer = NodePath("")
+_texture = NodePath("Sprite2D")
+metadata/_custom_type_script = "uid://2ljf4qfqxk7t"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1757535584]
+modulate = Color(1, 1, 1, 0.42745098)
+self_modulate = Color(0, 1, 0, 1)
+position = Vector2(1, 0)
+scale = Vector2(0.57493705, 0.57493705)
+texture = ExtResource("2_vgshy")
