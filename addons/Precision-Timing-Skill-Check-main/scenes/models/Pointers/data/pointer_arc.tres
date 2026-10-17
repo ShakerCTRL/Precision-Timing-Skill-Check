@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ResourcePointer" format=3 uid="uid://cqm4cqbhnr1j2"]
+
+[ext_resource type="Script" uid="uid://tfwla0j66yw3" path="res://scenes/models/Pointers/resource_data_pointer.gd" id="1_n60mp"]
+
+[resource]
+script = ExtResource("1_n60mp")
+speed = 350.0
+effect_elastic = true
+metadata/_custom_type_script = "uid://tfwla0j66yw3"
