@@ -1,7 +1,7 @@
 ## Installation Guide
 
 1. **Copy the Folder**  
-   Copy the `precision_and_skill_check_v1` directory into the root folder of your Godot project (`res://`).
+   Copy the `Precision-Timing-Skill-Check-main` directory into the root folder of your Godot project (`res://`).
 
 2. **Configure Global Autoload (Singleton)**  
    To enable global event routing, set up the singleton event bus:
